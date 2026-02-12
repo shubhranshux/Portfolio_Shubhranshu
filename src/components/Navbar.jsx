@@ -70,9 +70,11 @@ const Navbar = () => {
             {/* Desktop CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
               {/* Download Resume Button */}
+              {/* Download Resume Button */}
               <a 
                 href={personalInfo.resumeLink}
-                download="Shubhranshu_Behera_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 py-2.5 px-5 rounded-full text-sm font-medium transition-all hover:scale-105"
                 style={{
                   background: isDark ? 'rgba(96, 165, 250, 0.1)' : 'rgba(37, 99, 235, 0.1)',
