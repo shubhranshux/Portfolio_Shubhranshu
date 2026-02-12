@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Menu, X, Download } from 'lucide-react';
+import { personalInfo } from '../data/portfolio';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,7 +71,7 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-3">
               {/* Download Resume Button */}
               <a 
-                href="/resume.pdf" 
+                href={personalInfo.resumeLink}
                 download="Shubhranshu_Behera_Resume.pdf"
                 className="flex items-center gap-2 py-2.5 px-5 rounded-full text-sm font-medium transition-all hover:scale-105"
                 style={{

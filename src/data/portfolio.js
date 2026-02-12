@@ -6,7 +6,7 @@ export const personalInfo = {
   tagline: "Building innovative web applications with modern technologies",
   email: "shubhranshu1012@gmail.com",
   location: "Odisha, India",
-  resumeLink: "#",
+  resumeLink: "/SVU_resume.pdf",
   isHireable: true,
 };
 
@@ -65,6 +65,7 @@ export const projects = [
     github: null,
     live: "https://scratchthenotetaking.netlify.app/",
     featured: true,
+    // image: "/projects/scratch_project_demo.png", 
   },
   {
     id: 3,
@@ -74,6 +75,7 @@ export const projects = [
     github: null,
     live: "https://urban-decor.netlify.app/",
     featured: true,
+    // image: "/projects/urban_decor_project_demo.png",
   },
 ];
 

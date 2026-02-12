@@ -1,145 +1,71 @@
-import { Github, Instagram, Linkedin } from 'lucide-react';
+import { Github, Instagram, Linkedin, ArrowDown } from 'lucide-react';
 import { personalInfo, socialLinks } from '../data/portfolio';
 import { useTheme } from '../context/ThemeContext';
+import LiveBackground from './LiveBackground';
 
 const Hero = () => {
   const { isDark } = useTheme();
   
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden flex items-center">
-      {/* Geometric decorations */}
-      <div 
-        className="absolute top-[15%] right-[15%] w-24 h-24 rotate-45 border rounded-lg"
-        style={{ 
-          borderColor: isDark ? 'rgba(161, 161, 170, 0.15)' : 'rgba(37, 99, 235, 0.1)',
-          background: isDark ? 'transparent' : 'rgba(37, 99, 235, 0.02)'
-        }}
-      />
-      <div 
-        className="absolute bottom-[20%] right-[25%] w-16 h-16 border rounded"
-        style={{ 
-          borderColor: isDark ? 'rgba(161, 161, 170, 0.15)' : 'rgba(124, 58, 237, 0.1)',
-          background: isDark ? 'transparent' : 'rgba(124, 58, 237, 0.02)'
-        }}
-      />
-      <div 
-        className="absolute top-[60%] right-[8%] w-3 h-3 rounded-full"
-        style={{ background: isDark ? 'rgba(161, 161, 170, 0.3)' : 'rgba(37, 99, 235, 0.2)' }}
-      />
-      <div className="absolute top-[40%] right-[12%] flex gap-1.5">
-        {[1,2,3].map(i => (
-          <div 
-            key={i}
-            className="w-2 h-2 rounded-full"
-            style={{ background: isDark ? 'rgba(161, 161, 170, 0.3)' : 'rgba(37, 99, 235, 0.2)' }}
-          />
-        ))}
-      </div>
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-center justify-center">
+      <LiveBackground />
+      
+      {/* Decorative elements are now handled by LiveBackground, keeping clean layout */}
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-20">
-        <div className="max-w-3xl space-y-8">
-          {/* Main Heading */}
-          <div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span style={{ color: isDark ? '#E5E7EB' : '#111827' }}>Hi, I'm a </span>
-              <span style={{ color: isDark ? '#60A5FA' : '#2563EB' }}>CS Enthusiast</span>
-              <span style={{ color: isDark ? '#E5E7EB' : '#111827' }}> and</span>
-              <br />
-              <span className="gradient-text">full-stack developer</span>
+
+      <div className="w-full max-w-7xl mx-auto px-6 relative z-10 pt-20 flex flex-col md:flex-row items-start md:items-center min-h-[80vh]">
+        {/* Left Content */}
+        <div className="max-w-3xl space-y-8 text-left md:w-1/2">
+          {/* Main Heading with subtle backing for contrast */}
+          <div className="relative z-10 inline-block">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient-x">
+                Shubhranshu
+              </span>
+              <span className="block text-4xl md:text-5xl mt-4 font-light text-foreground opacity-90">
+                Full Stack Developer
+              </span>
             </h1>
           </div>
 
           {/* Description */}
-          <p 
-            className="text-lg leading-relaxed max-w-lg"
-            style={{ color: isDark ? '#9CA3AF' : '#4B5563' }}
-          >
-            I'm currently into Generative AI, frontend Dev, backend Dev. Building innovative web applications with modern technologies.
+          <p className="text-xl md:text-2xl leading-relaxed max-w-xl text-muted font-light drop-shadow-md">
+            Crafting digital experiences with <span className="font-semibold text-blue-400">code</span> and <span className="font-semibold text-purple-400">creativity</span>. 
+            Specializing in modern web technologies and AI-driven solutions.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4">
+          {/* CTA Buttons - Styled to match background */}
+          <div className="flex flex-wrap gap-6 pt-4">
             <a 
               href="#projects" 
-              className="btn-primary"
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-md rounded-full overflow-hidden border border-white/20 transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.6)]"
             >
-              View Projects
+              <span className="relative z-10 font-semibold text-white">View Projects</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </a>
+            
             <a 
               href="#contact" 
-              className="btn-secondary"
+              className="group px-8 py-4 rounded-full border border-white/10 hover:border-white/30 transition-all bg-black/20 backdrop-blur-sm hover:bg-white/10"
             >
-              Contact Me
+              <span className="font-medium text-foreground group-hover:text-purple-400 transition-colors">Contact Me</span>
             </a>
           </div>
 
           {/* Scroll indicator */}
-          <div className="pt-12">
+          <div className="pt-20 animate-bounce">
             <a 
               href="#about" 
-              className="inline-flex items-center gap-2 transition-colors text-sm"
-              style={{ color: isDark ? '#9CA3AF' : '#6B7280' }}
-              onMouseEnter={(e) => e.target.style.color = isDark ? '#60A5FA' : '#2563EB'}
-              onMouseLeave={(e) => e.target.style.color = isDark ? '#9CA3AF' : '#6B7280'}
+              className="inline-flex flex-col items-center gap-2 text-muted hover:text-purple-400 transition-colors"
             >
-              <span>Scroll Down</span>
-              <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
+              <span className="text-sm tracking-widest uppercase opacity-70">Scroll</span>
+              <ArrowDown size={20} className="opacity-70" />
             </a>
           </div>
         </div>
 
-        {/* Quote Section */}
-        <div className="mt-24 max-w-2xl">
-          <div 
-            className="relative rounded-xl p-8"
-            style={{
-              background: isDark 
-                ? 'linear-gradient(135deg, rgba(255,255,255, 0.02), rgba(96, 165, 250, 0.03))' 
-                : 'linear-gradient(135deg, rgba(255,255,255, 0.8), rgba(37, 99, 235, 0.05))',
-              border: `1px solid ${isDark ? 'rgba(255,255,255, 0.08)' : 'rgba(37, 99, 235, 0.15)'}`,
-              backdropFilter: 'blur(20px)',
-              boxShadow: isDark ? 'none' : '0 8px 32px rgba(37, 99, 235, 0.08)'
-            }}
-          >
-            <span 
-              className="absolute -top-3 left-6 text-5xl font-serif"
-              style={{ 
-                background: isDark 
-                  ? 'linear-gradient(135deg, #60A5FA, #A78BFA)' 
-                  : 'linear-gradient(135deg, #2563EB, #7C3AED)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                opacity: 0.8
-              }}
-            >"</span>
-            <p 
-              className="text-lg leading-relaxed pl-4 italic"
-              style={{ color: isDark ? '#9CA3AF' : '#4B5563' }}
-            >
-              Control can sometimes be an illusion.<br />
-              But sometimes you need illusion to gain control.
-            </p>
-            <span 
-              className="absolute -bottom-6 right-6 text-5xl font-serif"
-              style={{ 
-                background: isDark 
-                  ? 'linear-gradient(135deg, #60A5FA, #A78BFA)' 
-                  : 'linear-gradient(135deg, #2563EB, #7C3AED)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                opacity: 0.8
-              }}
-            >"</span>
-            <p 
-              className="text-right mt-4 font-medium"
-              style={{ color: isDark ? '#A1A1AA' : '#6B7280' }}
-            >
-              - Mr. Who
-            </p>
-          </div>
-        </div>
+
+
       </div>
 
       {/* Social Links - Right Side */}
